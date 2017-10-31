@@ -1,10 +1,10 @@
-package com.profilizer.ui.test
+package com.profilizer.activities
 
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.profilizer.R
-import com.profilizer.ui.base.BaseActivity
 
-class PersonalityTestActivity : BaseActivity() {
+class PersonalityTestActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

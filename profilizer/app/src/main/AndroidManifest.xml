@@ -2,22 +2,30 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.profilizer">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name=".ProfilizerApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_profilizer"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_profilizer_round"
         android:supportsRtl="true"
         android:theme="@style/ProfilizerTheme">
-        <activity android:name=".ui.LatestTestsActivity">
+        <activity android:name=".activities.LatestTestsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.test.PersonalityTestActivity"
-            android:theme="@style/ProfilizerTestTheme"/>
+        <activity
+            android:name=".activities.PersonalityTestActivity"
+            android:theme="@style/ProfilizerTestTheme" />
+        <activity
+            android:name=".activities.FloatActivity"
+            android:label="@string/title_activity_float"
+            android:theme="@style/ProfilizerTheme"></activity>
     </application>
 
 </manifest>

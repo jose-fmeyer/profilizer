@@ -17,4 +17,8 @@
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
     </style>
 
+    <style name="ProfilizerTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="ProfilizerTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

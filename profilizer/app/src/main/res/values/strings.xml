@@ -1,4 +1,9 @@
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="app_name">Profilizer</string>
     <string name="latest_tests">Latest Tests</string>
+    <string name="personality_test_image_description">Personality Test Image Description</string>
+    <string name="percentage_completion">%1$d%%</string>
+    <string name="empty_tests_message">There are no tests started yet, lets create one!!</string>
+    <string name="title_activity_float">FloatActivity</string>
+    <string name="load_error_message">An unexpected error happened. Try again later.</string>
 </resources>
