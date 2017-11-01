@@ -2,28 +2,27 @@ package com.profilizer.presenter
 
 import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
-import com.profilizer.personalitytest.presenter.LatestTestsPresenterImpl
 import com.profilizer.personalitytest.contracts.LatestTestsContract
+import com.profilizer.personalitytest.model.PersonalityTest
+import com.profilizer.personalitytest.presenter.LatestTestsPresenterImpl
 import com.profilizer.personalitytest.services.PersonalityTestService
+import com.profilizer.presenter.util.TestUtils
+import io.reactivex.Observable
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import org.mockito.Mock
-import com.profilizer.personalitytest.model.PersonalityTest
-import com.profilizer.presenter.util.TestUtils
-import io.reactivex.Observable
 import org.mockito.BDDMockito.any
 import org.mockito.BDDMockito.given
-
+import org.mockito.Mock
 
 
 class LatestTestsPresenterTest {
 
     @Mock lateinit var service: PersonalityTestService
     @Mock lateinit var view: LatestTestsContract.View
-    lateinit var presenter: LatestTestsContract.Presenter
-    lateinit var tests : List<PersonalityTest>
-    val testUtils = TestUtils()
+    private lateinit var presenter: LatestTestsContract.Presenter
+    private lateinit var tests : List<PersonalityTest>
+    private val testUtils = TestUtils()
 
     @Before
     fun setUp() {
@@ -52,7 +51,7 @@ class LatestTestsPresenterTest {
 
         presenter.loadTests()
 
-        verify(view, times(1)).startLoading()
+        verify(view, times(1)).onStartLoading()
     }
 
     @Test

@@ -11,10 +11,6 @@ class LatestTestsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private var items: ArrayList<ViewType>
     private var delegateAdapters = SparseArrayCompat<ViewTypeDelegateAdapter>()
 
-    private val loadingItem = object : ViewType {
-        override fun getViewType(): Int = ViewTypeDelegateAdapter.LOADING
-    }
-
     init {
         delegateAdapters.append(ViewTypeDelegateAdapter.LATEST_TESTS, LatestTestsDelegateAdapter())
 
@@ -33,18 +29,12 @@ class LatestTestsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun getItemCount(): Int = items.size
 
     fun addTests(tests : Collection<PersonalityTest>) {
-        val positionStart = itemCount.minus(1)
-        with(this.items) {
-            removeAt(positionStart)
-            addAll(tests)
-            add(loadingItem)
-        }
-        notifyItemInserted(itemCount.minus(1))
+        this.items.addAll(tests)
+        notifyDataSetChanged()
     }
 
     fun clearAndAddTests(tests : List<PersonalityTest>) {
         this.items.clear()
-        this.items.add(loadingItem)
         addTests(tests)
     }
 

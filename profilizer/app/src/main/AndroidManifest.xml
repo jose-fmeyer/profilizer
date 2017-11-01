@@ -20,12 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.PersonalityTestActivity"
-            android:theme="@style/ProfilizerTestTheme" />
-        <activity
-            android:name=".activities.FloatActivity"
-            android:label="@string/title_activity_float"
-            android:theme="@style/ProfilizerTheme"></activity>
+            android:name=".activities.PersonalityTestActivity" />
     </application>
 
 </manifest>

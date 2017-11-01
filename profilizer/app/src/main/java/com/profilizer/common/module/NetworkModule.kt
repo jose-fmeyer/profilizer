@@ -4,7 +4,6 @@ import com.profilizer.BuildConfig.BASE_END_POINT
 import com.profilizer.common.api.ApiAuthenticationInterceptor
 import com.profilizer.common.api.DateJsonAdpater
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.Rfc3339DateJsonAdapter
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

@@ -3,7 +3,6 @@ package com.profilizer.common.component
 import android.content.Context
 import android.content.res.Resources
 import com.profilizer.ProfilizerApplication
-import com.profilizer.activities.LatestTestsActivity
 import com.profilizer.common.module.AppModule
 import com.profilizer.common.module.NetworkModule
 import dagger.Component

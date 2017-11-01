@@ -7,20 +7,17 @@ import com.profilizer.common.ViewType
 import com.profilizer.common.ViewTypeDelegateAdapter
 import com.profilizer.common.inflate
 import com.profilizer.personalitytest.model.PersonalityTest
-import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
 import java.util.*
-import kotlinx.android.synthetic.main.personalitytest_item.view.test_owner as owner
-import kotlinx.android.synthetic.main.personalitytest_item.view.test_owner as owner
 import kotlinx.android.synthetic.main.personalitytest_item.view.test_creation_date as creationDate
+import kotlinx.android.synthetic.main.personalitytest_item.view.test_owner as owner
 import kotlinx.android.synthetic.main.personalitytest_item.view.test_percentage_completion as percentageCompletion
 
 class LatestTestsDelegateAdapter : ViewTypeDelegateAdapter {
 
     override fun onCreateViewHolder(parent: ViewGroup) = LatestTestsViewHolder(parent)
 
-    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType, position: Int) {
         holder as LatestTestsViewHolder
         holder.bind(item as PersonalityTest)
     }

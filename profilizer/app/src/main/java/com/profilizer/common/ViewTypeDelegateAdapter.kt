@@ -6,11 +6,10 @@ import android.view.ViewGroup
 interface ViewTypeDelegateAdapter {
 
     companion object {
-        val LOADING = 1
-        val LATEST_TESTS = 2
+        val LATEST_TESTS = 1
     }
 
     fun onCreateViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder
 
-    fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType)
+    fun onBindViewHolder(holder: RecyclerView.ViewHolder, item: ViewType, position: Int = 0)
 }

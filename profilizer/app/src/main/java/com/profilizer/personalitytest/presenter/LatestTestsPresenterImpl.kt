@@ -1,5 +1,6 @@
 package com.profilizer.personalitytest.presenter
 
+import android.util.Log
 import com.profilizer.personalitytest.contracts.LatestTestsContract
 import com.profilizer.personalitytest.services.PersonalityTestService
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -7,9 +8,10 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class LatestTestsPresenterImpl @Inject constructor(val latestTestsView: LatestTestsContract.View,
-                                                   val testService: PersonalityTestService) : LatestTestsContract.Presenter {
+class LatestTestsPresenterImpl @Inject constructor(private val latestTestsView: LatestTestsContract.View,
+                                                   private val testService: PersonalityTestService) : LatestTestsContract.Presenter {
 
+    private val tag = LatestTestsPresenterImpl::class.java.canonicalName
     private lateinit var disposable: CompositeDisposable
 
     override fun onAttach() {
@@ -24,6 +26,7 @@ class LatestTestsPresenterImpl @Inject constructor(val latestTestsView: LatestTe
     }
 
     override fun loadTests() {
+        latestTestsView.onStartLoading()
         disposable.add(
                 testService.loadTests()
                 .observeOn(AndroidSchedulers.mainThread())
@@ -35,6 +38,7 @@ class LatestTestsPresenterImpl @Inject constructor(val latestTestsView: LatestTe
                         latestTestsView.showPersonalityTestData(data)
                     }
                 }, {
+                    Log.e(tag, "Error on loading tests", it)
                     latestTestsView.showErrorMessage()
                 }))
     }
