@@ -3,14 +3,10 @@ package com.profilizer.presenter
 import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.times
 import com.nhaarman.mockito_kotlin.verify
-import com.profilizer.personalitytest.contracts.LatestTestsContract
 import com.profilizer.personalitytest.contracts.ListCompletedTestsContract
 import com.profilizer.personalitytest.model.Answer
-import com.profilizer.personalitytest.model.PersonalityTest
-import com.profilizer.personalitytest.presenter.LatestTestsPresenterImpl
 import com.profilizer.personalitytest.presenter.ListCompletedTestsPresenterImpl
 import com.profilizer.personalitytest.services.AnswerService
-import com.profilizer.personalitytest.services.PersonalityTestService
 import com.profilizer.presenter.util.TestUtils
 import io.reactivex.Observable
 import org.junit.After

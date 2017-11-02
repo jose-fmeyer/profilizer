@@ -4,7 +4,6 @@ import com.profilizer.common.component.ActivityScope
 import com.profilizer.common.component.ApplicationComponent
 import com.profilizer.fragments.QuestionFragment
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
-import com.profilizer.personalitytest.di.modules.StartPersonalityTestModule
 import com.profilizer.personalitytest.di.modules.QuestionModule
 import dagger.Component
 

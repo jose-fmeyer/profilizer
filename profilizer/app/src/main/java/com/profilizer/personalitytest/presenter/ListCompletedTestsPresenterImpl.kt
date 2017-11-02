@@ -1,10 +1,8 @@
 package com.profilizer.personalitytest.presenter
 
 import android.util.Log
-import com.profilizer.personalitytest.contracts.LatestTestsContract
 import com.profilizer.personalitytest.contracts.ListCompletedTestsContract
 import com.profilizer.personalitytest.services.AnswerService
-import com.profilizer.personalitytest.services.PersonalityTestService
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

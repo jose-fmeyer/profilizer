@@ -5,7 +5,6 @@ import com.profilizer.common.component.ActivityScope
 import com.profilizer.common.component.ApplicationComponent
 import com.profilizer.personalitytest.di.modules.LatestTestsModule
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
-import com.profilizer.personalitytest.di.modules.StartPersonalityTestModule
 import dagger.Component
 
 @ActivityScope

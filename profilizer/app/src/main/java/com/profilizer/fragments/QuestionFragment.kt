@@ -20,13 +20,16 @@ import com.profilizer.personalitytest.contracts.QuestionContract
 import com.profilizer.personalitytest.di.components.DaggerQuestionComponent
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
 import com.profilizer.personalitytest.di.modules.QuestionModule
-import com.profilizer.personalitytest.model.*
-import kotlinx.android.synthetic.main.fragment_question.answers_options as answerOptions
-import kotlinx.android.synthetic.main.fragment_question.btn_next as nextButton
-import kotlinx.android.synthetic.main.fragment_question.txt_question as textQuestion
-import kotlinx.android.synthetic.main.fragment_question.category_image as categoryImage
+import com.profilizer.personalitytest.model.Answer
+import com.profilizer.personalitytest.model.Question
+import com.profilizer.personalitytest.model.QuestionRange
+import com.profilizer.personalitytest.model.QuestionSingleChoice
 import com.profilizer.ui.FragmentCallback
 import javax.inject.Inject
+import kotlinx.android.synthetic.main.fragment_question.answers_options as answerOptions
+import kotlinx.android.synthetic.main.fragment_question.btn_next as nextButton
+import kotlinx.android.synthetic.main.fragment_question.category_image as categoryImage
+import kotlinx.android.synthetic.main.fragment_question.txt_question as textQuestion
 
 class QuestionFragment : Fragment(), QuestionContract.View {
 

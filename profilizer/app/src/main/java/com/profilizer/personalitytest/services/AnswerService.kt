@@ -1,7 +1,6 @@
 package com.profilizer.personalitytest.services
 
 import com.profilizer.personalitytest.model.Answer
-import com.profilizer.personalitytest.model.PersonalityTest
 import io.reactivex.Observable
 import retrofit2.http.Body
 import retrofit2.http.GET

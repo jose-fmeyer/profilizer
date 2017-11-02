@@ -5,7 +5,6 @@ import com.profilizer.personalitytest.presenter.LatestTestsPresenterImpl
 import com.profilizer.personalitytest.services.PersonalityTestService
 import dagger.Module
 import dagger.Provides
-import retrofit2.Retrofit
 
 @Module
 open class LatestTestsModule(var view: LatestTestsContract.View?) {

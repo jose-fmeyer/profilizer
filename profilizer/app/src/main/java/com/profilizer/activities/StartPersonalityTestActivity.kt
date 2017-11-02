@@ -21,12 +21,11 @@ import com.profilizer.personalitytest.model.PersonalityTestQuestions
 import com.profilizer.personalitytest.model.Question
 import com.profilizer.ui.FragmentCallback
 import kotlinx.android.synthetic.main.activity_personality_test.progressBarQuiz
-import kotlinx.android.synthetic.main.loading_item.*
 import java.util.*
 import javax.inject.Inject
+import kotlinx.android.synthetic.main.activity_personality_test.btn_close as btnClose
 import kotlinx.android.synthetic.main.activity_personality_test.container_test as testContainer
 import kotlinx.android.synthetic.main.activity_personality_test.progress_loading as progressLoading
-import kotlinx.android.synthetic.main.activity_personality_test.btn_close as btnClose
 
 class StartPersonalityTestActivity : AppCompatActivity(), StartPersonalityTestTestContract.View, FragmentCallback {
 

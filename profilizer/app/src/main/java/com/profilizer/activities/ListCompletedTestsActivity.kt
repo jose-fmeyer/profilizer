@@ -28,9 +28,9 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import javax.inject.Inject
 import kotlinx.android.synthetic.main.layout_app_bar.*
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 import kotlinx.android.synthetic.main.activity_completed_test.answers_list as answersList
 import kotlinx.android.synthetic.main.activity_completed_test.progress_bar as progressBar
 

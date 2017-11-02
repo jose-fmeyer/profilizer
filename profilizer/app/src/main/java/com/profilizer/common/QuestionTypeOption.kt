@@ -1,7 +1,5 @@
 package com.profilizer.common
 
-import java.lang.IllegalArgumentException
-
 enum class QuestionTypeOption(val questionType: String) {
     NUMBER_RANGE("number_range"),
     SINGLE_CHOICE("single_choice");

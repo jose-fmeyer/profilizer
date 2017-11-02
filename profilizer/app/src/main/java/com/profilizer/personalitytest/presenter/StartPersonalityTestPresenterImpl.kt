@@ -2,13 +2,10 @@ package com.profilizer.personalitytest.presenter
 
 import android.util.Log
 import com.profilizer.personalitytest.contracts.StartPersonalityTestTestContract
-import com.profilizer.personalitytest.model.Question
 import com.profilizer.personalitytest.services.PersonalityTestService
-import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import java.util.*
 import javax.inject.Inject
 
 class StartPersonalityTestPresenterImpl @Inject constructor(private val testTestViewStart: StartPersonalityTestTestContract.View,

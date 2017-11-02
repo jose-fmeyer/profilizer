@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_latest_tests.btn_add_test as btnA
 import kotlinx.android.synthetic.main.activity_latest_tests.progress_bar as progressBar
 import kotlinx.android.synthetic.main.activity_latest_tests.tests_empty as testEmptyMessage
 import kotlinx.android.synthetic.main.activity_latest_tests.tests_list as testsList
+import kotlinx.android.synthetic.main.activity_latest_tests.tests_empty as textEmpty
 
 class LatestTestsActivity : AppCompatActivity(), LatestTestsContract.View {
 
@@ -68,6 +69,9 @@ class LatestTestsActivity : AppCompatActivity(), LatestTestsContract.View {
 
     override fun showPersonalityTestData(tests: List<PersonalityTest>) {
         progressBar.hide()
+        if (tests.isNotEmpty()) {
+            textEmpty.hide()
+        }
         adapter.clearAndAddTests(tests)
     }
 

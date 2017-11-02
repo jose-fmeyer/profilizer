@@ -10,8 +10,8 @@ import com.profilizer.common.ViewTypeDelegateAdapter
 import com.profilizer.common.inflate
 import com.profilizer.personalitytest.model.QuestionRange
 import com.profilizer.ui.OnSeekBarChangeListenerAdapter
-import kotlinx.android.synthetic.main.list_item_question_range.view.range_bar as rangeBar
 import kotlinx.android.synthetic.main.list_item_question_range.view.progress_label as progressLabel
+import kotlinx.android.synthetic.main.list_item_question_range.view.range_bar as rangeBar
 
 class QuestionRangeDelegateAdapter(private var questionRangeViewType : ViewType) : ViewTypeDelegateAdapter {
 

@@ -1,11 +1,11 @@
 package com.profilizer.personalitytest.adapter
 
-import com.profilizer.common.ViewTypeDelegateAdapter.Companion.QUESTION_TYPE_SINGLE_CHOICE
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.RadioGroup
 import com.profilizer.common.ViewType
 import com.profilizer.common.ViewTypeDelegateAdapter
+import com.profilizer.common.ViewTypeDelegateAdapter.Companion.QUESTION_TYPE_SINGLE_CHOICE
 import kotlinx.android.synthetic.main.list_item_question_single_choice.view.radio_group as questionsRadioGroup
 import kotlinx.android.synthetic.main.list_item_question_single_choice.view.tv_question as tvQuestion
 

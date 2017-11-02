@@ -10,8 +10,8 @@ import com.profilizer.common.ViewType
 import com.profilizer.common.ViewTypeDelegateAdapter
 import com.profilizer.common.inflate
 import com.profilizer.personalitytest.model.QuestionSingleChoice
-import kotlinx.android.synthetic.main.list_item_question_single_choice.view.tv_question as tvQuestion
 import kotlinx.android.synthetic.main.list_item_question_single_choice.view.radio_group as questionsRadioGroup
+import kotlinx.android.synthetic.main.list_item_question_single_choice.view.tv_question as tvQuestion
 
 class QuestionSingleChoiceDelegateAdapter(private var questionSingleChoiceViewType : ViewType) :
         ViewTypeDelegateAdapter {

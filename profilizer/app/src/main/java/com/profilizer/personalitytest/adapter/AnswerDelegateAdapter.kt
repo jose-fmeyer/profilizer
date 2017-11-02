@@ -7,8 +7,8 @@ import com.profilizer.common.ViewType
 import com.profilizer.common.ViewTypeDelegateAdapter
 import com.profilizer.common.inflate
 import com.profilizer.personalitytest.model.Answer
-import kotlinx.android.synthetic.main.item_completed_test.view.text_question as textQuestion
 import kotlinx.android.synthetic.main.item_completed_test.view.text_answer as textAnswer
+import kotlinx.android.synthetic.main.item_completed_test.view.text_question as textQuestion
 
 class AnswerDelegateAdapter : ViewTypeDelegateAdapter {
 
