@@ -4,18 +4,17 @@ import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
 import com.profilizer.ProfilizerApplication
 import com.profilizer.R
-import com.profilizer.common.hide
-import com.profilizer.common.setTitle
-import com.profilizer.common.startActivity
-import com.profilizer.common.visible
+import com.profilizer.common.*
 import com.profilizer.personalitytest.adapter.LatestTestsAdapter
 import com.profilizer.personalitytest.contracts.LatestTestsContract
 import com.profilizer.personalitytest.di.components.DaggerLatestTestsComponent
 import com.profilizer.personalitytest.di.modules.LatestTestsModule
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
 import com.profilizer.personalitytest.model.PersonalityTest
+import com.profilizer.ui.OnItemClickListener
 import kotlinx.android.synthetic.main.layout_app_bar.*
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.activity_latest_tests.btn_add_test as btnAddTest
@@ -61,8 +60,9 @@ class LatestTestsActivity : AppCompatActivity(), LatestTestsContract.View {
     private fun prepareViews() {
         testsList.layoutManager = LinearLayoutManager(this)
         testsList.adapter = adapter
+        testsList.addOnItemClickListener(itemClickListener)
         btnAddTest.setOnClickListener {
-            startActivity<PersonalityTestActivity>()
+            startActivity<StartPersonalityTestActivity>()
         }
     }
 
@@ -83,5 +83,19 @@ class LatestTestsActivity : AppCompatActivity(), LatestTestsContract.View {
 
     override fun onStartLoading() {
         progressBar.visible()
+    }
+
+    private val itemClickListener = object : OnItemClickListener {
+        override fun onItemClick(view: View) {
+            val adapter = testsList.adapter as LatestTestsAdapter
+            val test = adapter.getItemAt(testsList.getChildAdapterPosition(view))
+            if (test.percentageCompletion == 100) {
+                startActivity(ListCompletedTestsActivity.buildCompletedTestIntent(
+                        this@LatestTestsActivity, test.id!!))
+            } else {
+                startActivity(StartPersonalityTestActivity.buildPersonalityTestIntent(
+                        this@LatestTestsActivity, test.id!!))
+            }
+        }
     }
 }

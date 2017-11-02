@@ -1,13 +1,21 @@
 package com.profilizer.common
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.os.Parcel
 import android.os.Parcelable
+import android.support.annotation.AttrRes
+import android.support.annotation.ColorRes
+import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes
+import android.support.v4.content.ContextCompat
+import android.support.v4.graphics.drawable.DrawableCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,4 +60,13 @@ fun RecyclerView.addOnItemClickListener(itemClickListener: OnItemClickListener) 
         override fun onChildViewDetachedFromWindow(view: View?) {}
     }
     this.addOnChildAttachStateChangeListener(attach)
+}
+
+fun Context.tintDrawable(@ColorRes color: Int, @DrawableRes drawableId : Int): Drawable {
+    val drawable = ContextCompat.getDrawable(this, drawableId)
+    if (drawable != null) {
+        DrawableCompat.setTintList(drawable, ContextCompat.getColorStateList(this, color))
+        return drawable
+    }
+    throw IllegalArgumentException("Drawable not found")
 }

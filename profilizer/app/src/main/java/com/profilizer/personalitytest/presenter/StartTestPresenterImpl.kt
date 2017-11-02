@@ -12,7 +12,6 @@ import javax.inject.Inject
 
 class StartTestPresenterImpl @Inject constructor(private val startTestView: StartTestContract.View,
                                                 private val testService: PersonalityTestService) : StartTestContract.Presenter {
-
     private val tag = StartTestPresenterImpl::class.java.canonicalName
     private lateinit var disposable: CompositeDisposable
 
@@ -46,5 +45,9 @@ class StartTestPresenterImpl @Inject constructor(private val startTestView: Star
         catch (error: ValidationException) {
             Log.e(tag, error.message)
         }
+    }
+
+    override fun loadTestQuestions() {
+
     }
 }

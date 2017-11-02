@@ -4,17 +4,15 @@ import com.profilizer.common.BasePresenter
 import com.profilizer.personalitytest.model.PersonalityTest
 import com.profilizer.personalitytest.model.PersonalityTestQuestions
 
-interface StartTestContract {
+interface StartPersonalityTestTestContract {
 
     interface View {
-        fun onCreateFinish(personalityTest: PersonalityTest)
+        fun onFinishLoadingTestQuestions(personalityTestQuestions: PersonalityTestQuestions)
         fun showErrorMessage()
-        fun validateFields()
-        fun startCreating()
+        fun startLoading()
     }
 
     interface Presenter: BasePresenter {
-        fun createPersonalityTest(userName: String)
         fun loadTestQuestions()
     }
 }

@@ -1,5 +1,6 @@
 package com.profilizer.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.text.Editable
@@ -9,25 +10,28 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.profilizer.ProfilizerApplication
 import com.profilizer.R
-import com.profilizer.activities.PersonalityTestActivity
 import com.profilizer.common.ValidationException
-import com.profilizer.common.hide
-import com.profilizer.common.visible
 import com.profilizer.personalitytest.contracts.StartTestContract
 import com.profilizer.personalitytest.di.components.DaggerStartTestComponent
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
 import com.profilizer.personalitytest.di.modules.StartTestModule
 import com.profilizer.personalitytest.model.PersonalityTest
+import com.profilizer.ui.FragmentCallback
 import com.profilizer.ui.TextWatcherAdapter
 import javax.inject.Inject
 import kotlinx.android.synthetic.main.fragment_start_test.btn_start_test as btnStartTest
 import kotlinx.android.synthetic.main.fragment_start_test.edit_text_user_name as editTestUserName
-import kotlinx.android.synthetic.main.fragment_start_test.progress_bar as progressBar
 
 class StartTestFragment : Fragment(), StartTestContract.View {
 
     @Inject
     lateinit var presenter: StartTestContract.Presenter
+    private lateinit var callback: FragmentCallback
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        callback = activity as FragmentCallback
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_start_test, container, false)
@@ -70,13 +74,12 @@ class StartTestFragment : Fragment(), StartTestContract.View {
     }
 
     override fun onCreateFinish(personalityTest: PersonalityTest) {
-        progressBar.hide()
-        val activity = activity as PersonalityTestActivity
-        activity.loadQuestionFragment()
+        callback.onFinishLoading()
+        callback.onStartFinish(personalityTest.id!!)
     }
 
     override fun showErrorMessage() {
-        progressBar.hide()
+        callback.onFinishLoading()
         Toast.makeText(context, R.string.load_error_message, Toast.LENGTH_LONG).show()
     }
 
@@ -87,6 +90,6 @@ class StartTestFragment : Fragment(), StartTestContract.View {
     }
 
     override fun startCreating() {
-        progressBar.visible()
+        callback.onStartLoading()
     }
 }

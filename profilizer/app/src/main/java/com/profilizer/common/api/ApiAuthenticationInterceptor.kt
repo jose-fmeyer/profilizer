@@ -11,7 +11,7 @@ class ApiAuthenticationInterceptor : Interceptor {
     }
 
     override fun intercept(chain: Interceptor.Chain): Response {
-        var request = with(chain.request()) {
+        val request = with(chain.request()) {
             newBuilder()
                 .addHeader(AUTHORIZATION_PARAM, "Basic ${BuildConfig.API_AUTH}")
                 .build()

@@ -10,6 +10,11 @@
     <string name="start_test_message">Ready to start? Lets start discovering who you are first</string>
     <string name="name_hint">Name</string>
     <string name="start_test">Start Test</string>
+    <string name="finish_test_button">Finish</string>
     <string name="next_question">Next Question</string>
     <string name="user_name_required">Your name is required to move forward</string>
+    <string name="answer_required">You need to select an answer first</string>
+    <string name="finish_test">Your test is done, thanks for your patience</string>
+    <string name="action_search_answer">Search in answers</string>
+    <string name="search_hint">Answer or Question Name</string>
 </resources>

@@ -1,16 +1,16 @@
 package com.profilizer.personalitytest.di.components
 
-import com.profilizer.activities.LatestTestsActivity
+import com.profilizer.activities.StartPersonalityTestActivity
 import com.profilizer.common.component.ActivityScope
 import com.profilizer.common.component.ApplicationComponent
-import com.profilizer.personalitytest.di.modules.LatestTestsModule
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
 import com.profilizer.personalitytest.di.modules.StartPersonalityTestModule
 import dagger.Component
 
 @ActivityScope
 @Component(dependencies = arrayOf(ApplicationComponent::class),
-        modules = arrayOf(LatestTestsModule::class, PersonalityTestModule::class))
-interface LatestTestsComponent {
-    fun inject(latestTestsActivity: LatestTestsActivity)
+        modules = arrayOf(StartPersonalityTestModule::class, PersonalityTestModule::class))
+interface StartPersonalityTestComponent {
+
+    fun inject(startPersonalityTestActivity: StartPersonalityTestActivity)
 }

@@ -28,7 +28,7 @@ class LatestTestsAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun getItemCount(): Int = items.size
 
-    fun addTests(tests : Collection<PersonalityTest>) {
+    private fun addTests(tests : Collection<PersonalityTest>) {
         this.items.addAll(tests)
         notifyDataSetChanged()
     }
