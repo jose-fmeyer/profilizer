@@ -83,9 +83,13 @@ class StartPersonalityTestActivity : AppCompatActivity(), StartPersonalityTestTe
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
         savedInstanceState?.apply {
-            currentQuestion = getParcelable<Question>(KEY_CURRENT_QUESTION)
-            personalityTestId = getString(KEY_PERSONALITY_TEST)
-            testQuestions = getParcelable(KEY_TEST_QUESTIONS)
+            currentQuestion = if(containsKey(KEY_CURRENT_QUESTION)) getParcelable<Question>(KEY_CURRENT_QUESTION)
+                else null
+            personalityTestId = if(containsKey(KEY_PERSONALITY_TEST)) getString(KEY_PERSONALITY_TEST)
+                else ""
+            if(containsKey(KEY_TEST_QUESTIONS)) {
+                testQuestions =  getParcelable<PersonalityTestQuestions>(KEY_TEST_QUESTIONS)
+            }
         }
     }
 
