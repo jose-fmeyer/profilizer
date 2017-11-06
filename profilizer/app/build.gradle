@@ -21,13 +21,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField 'String', 'API_AUTH', '"dXNlcjp1c2VyMTIz"'
-            buildConfigField 'String', 'BASE_END_POINT', '"http://192.168.169.101:8080/profilizer/api/"'
+            buildConfigField 'String', 'BASE_END_POINT', '"http://localhost:8080/profilizer/api/"'
         }
 
         debug {
             buildConfigField 'String', 'API_AUTH', '"dXNlcjp1c2VyMTIz"'
-            buildConfigField 'String', 'BASE_END_POINT', '"http://192.168.169.101:8080/profilizer/api/"'
-            buildConfigField 'String', 'QA_BASE_END_POINT', '"http://192.168.169.101:8080/profilizer/api/"'
+            buildConfigField 'String', 'BASE_END_POINT', '"http://localhost:8080/profilizer/api/"'
+            buildConfigField 'String', 'QA_BASE_END_POINT', '"http://localhost:8080/profilizer/api/"'
             applicationIdSuffix ".debug"
             debuggable true
         }
