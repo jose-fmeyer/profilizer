@@ -6,7 +6,7 @@ import com.profilizer.personalitytest.contracts.LatestTestsContract
 import com.profilizer.personalitytest.model.PersonalityTest
 import com.profilizer.personalitytest.presenter.LatestTestsPresenterImpl
 import com.profilizer.personalitytest.services.PersonalityTestService
-import com.profilizer.presenter.util.TestUtils
+import com.profilizer.common.util.TestUtils
 import io.reactivex.Observable
 import org.junit.After
 import org.junit.Before
