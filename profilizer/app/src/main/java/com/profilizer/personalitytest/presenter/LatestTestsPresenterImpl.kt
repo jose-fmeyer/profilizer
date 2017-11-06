@@ -1,6 +1,7 @@
 package com.profilizer.personalitytest.presenter
 
 import android.util.Log
+import com.profilizer.common.util.NetworkUtil
 import com.profilizer.personalitytest.contracts.LatestTestsContract
 import com.profilizer.personalitytest.services.PersonalityTestService
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -26,6 +27,10 @@ class LatestTestsPresenterImpl @Inject constructor(private val latestTestsView: 
     }
 
     override fun loadTests() {
+        if (NetworkUtil.isNotConnected(latestTestsView.getViewContext())) {
+            latestTestsView.showNoNetworkMessage()
+            return
+        }
         latestTestsView.onStartLoading()
         disposable.add(
                 testService.loadTests()

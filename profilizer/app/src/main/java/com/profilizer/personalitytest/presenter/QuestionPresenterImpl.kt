@@ -1,6 +1,7 @@
 package com.profilizer.personalitytest.presenter
 
 import android.util.Log
+import com.profilizer.common.util.NetworkUtil
 import com.profilizer.personalitytest.contracts.QuestionContract
 import com.profilizer.personalitytest.model.Answer
 import com.profilizer.personalitytest.services.AnswerService
@@ -27,6 +28,10 @@ class QuestionPresenterImpl @Inject constructor(private val questionView: Questi
     }
 
     override fun saveAnswer(answer: String, question: String, category : String, personalityTestId: String) {
+        if (NetworkUtil.isNotConnected(questionView.getViewContext())) {
+            questionView.showNoNetworkMessage()
+            return
+        }
         questionView.onStartLoading()
         val userAnswer = Answer(answer, question, category, personalityTestId)
         disposable.add(

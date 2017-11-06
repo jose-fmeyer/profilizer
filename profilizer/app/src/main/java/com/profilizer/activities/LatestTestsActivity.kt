@@ -1,5 +1,6 @@
 package com.profilizer.activities
 
+import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
@@ -20,8 +21,8 @@ import javax.inject.Inject
 import kotlinx.android.synthetic.main.activity_latest_tests.btn_add_test as btnAddTest
 import kotlinx.android.synthetic.main.activity_latest_tests.progress_bar as progressBar
 import kotlinx.android.synthetic.main.activity_latest_tests.tests_empty as testEmptyMessage
-import kotlinx.android.synthetic.main.activity_latest_tests.tests_list as testsList
 import kotlinx.android.synthetic.main.activity_latest_tests.tests_empty as textEmpty
+import kotlinx.android.synthetic.main.activity_latest_tests.tests_list as testsList
 
 class LatestTestsActivity : AppCompatActivity(), LatestTestsContract.View {
 
@@ -67,6 +68,10 @@ class LatestTestsActivity : AppCompatActivity(), LatestTestsContract.View {
         }
     }
 
+    override fun getViewContext(): Context {
+        return this
+    }
+
     override fun showPersonalityTestData(tests: List<PersonalityTest>) {
         progressBar.hide()
         if (tests.isNotEmpty()) {
@@ -87,6 +92,11 @@ class LatestTestsActivity : AppCompatActivity(), LatestTestsContract.View {
 
     override fun onStartLoading() {
         progressBar.visible()
+    }
+
+    override fun showNoNetworkMessage() {
+        progressBar.hide()
+        Snackbar.make(testsList, R.string.no_network_error_message, Snackbar.LENGTH_LONG).show()
     }
 
     private val itemClickListener = object : OnItemClickListener {

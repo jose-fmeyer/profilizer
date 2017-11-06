@@ -1,0 +1,18 @@
+[
+  {
+    "id": "59fc5cb6857aba0001a18cc4",
+    "question": "What is your gender?",
+    "category": "hard_fact",
+    "answer": "female",
+    "creationDate": 1509711030765,
+    "personalityTestId": "59fc5cb6857aba0001a18cc3"
+  },
+  {
+    "id": "59fc5cb6857aba0001a4687dd3",
+    "question": "What is your gender?",
+    "category": "hard_fact",
+    "answer": "female",
+    "creationDate": 1509711030765,
+    "personalityTestId": "59fc5cb6857aba0001a18cc3"
+  }
+]

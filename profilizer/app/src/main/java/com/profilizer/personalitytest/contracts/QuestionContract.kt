@@ -1,11 +1,12 @@
 package com.profilizer.personalitytest.contracts
 
 import com.profilizer.common.BasePresenter
+import com.profilizer.common.BaseView
 import com.profilizer.personalitytest.model.Answer
 
 interface QuestionContract {
 
-    interface View {
+    interface View: BaseView {
         fun showErrorMessage()
         fun onStartLoading()
         fun onFinishSaveAnswer(answer: Answer)

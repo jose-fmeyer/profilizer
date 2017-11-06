@@ -73,6 +73,10 @@ class StartTestFragment : Fragment(), StartTestContract.View {
         })
     }
 
+    override fun getViewContext(): Context {
+        return context!!
+    }
+
     override fun onCreateFinish(personalityTest: PersonalityTest) {
         callback.onFinishLoading()
         callback.onStartFinish(personalityTest.id!!)
@@ -81,6 +85,11 @@ class StartTestFragment : Fragment(), StartTestContract.View {
     override fun showErrorMessage() {
         callback.onFinishLoading()
         Toast.makeText(context, R.string.load_error_message, Toast.LENGTH_LONG).show()
+    }
+
+    override fun showNoNetworkMessage() {
+        callback.onFinishLoading()
+        Toast.makeText(context, R.string.no_network_error_message, Toast.LENGTH_LONG).show()
     }
 
     override fun validateFields() {

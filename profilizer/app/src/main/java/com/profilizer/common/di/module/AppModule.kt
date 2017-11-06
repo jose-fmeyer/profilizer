@@ -1,4 +1,4 @@
-package com.profilizer.common.module
+package com.profilizer.common.di.module
 
 import android.app.Application
 import android.content.Context

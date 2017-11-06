@@ -1,0 +1,45 @@
+{
+  "id": "59fb3f6c02985b8426407436",
+  "questions": [
+    {
+      "question": "What is your gender?",
+      "category": "hard_fact",
+      "questionType": {
+        "type": "single_choice",
+        "options": [
+          "male",
+          "female",
+          "other"
+        ],
+        "condition": null,
+        "range": null
+      },
+      "testsId": [
+        "59fb494902985b8a39fa8443",
+        "59fb4a9702985b8a39fa845e",
+        "59fb3fa802985b8426407438"
+      ]
+    },
+    {
+      "question": "How important is the gender of your partner?",
+      "category": "hard_fact",
+      "questionType": {
+        "type": "single_choice",
+        "options": [
+          "not important",
+          "important",
+          "very important"
+        ],
+        "condition": null,
+        "range": null
+      },
+      "testsId": [
+        "59fb494902985b8a39fa8443",
+        "59fb4a9702985b8a39fa845e",
+        "59fb3fa802985b8426407438",
+        "59fbddf4857aba00015ad862"
+      ]
+    }
+  ],
+  "categories": null
+}

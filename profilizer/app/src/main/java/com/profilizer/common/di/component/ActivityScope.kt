@@ -1,4 +1,4 @@
-package com.profilizer.common.component
+package com.profilizer.common.di.component
 
 import javax.inject.Scope
 

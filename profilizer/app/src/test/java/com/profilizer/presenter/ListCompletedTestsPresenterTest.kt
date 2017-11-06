@@ -7,7 +7,7 @@ import com.profilizer.personalitytest.contracts.ListCompletedTestsContract
 import com.profilizer.personalitytest.model.Answer
 import com.profilizer.personalitytest.presenter.ListCompletedTestsPresenterImpl
 import com.profilizer.personalitytest.services.AnswerService
-import com.profilizer.presenter.util.TestUtils
+import com.profilizer.common.util.TestUtils
 import io.reactivex.Observable
 import org.junit.After
 import org.junit.Before

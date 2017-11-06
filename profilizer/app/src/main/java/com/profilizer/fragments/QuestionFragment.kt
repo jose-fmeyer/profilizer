@@ -133,9 +133,18 @@ class QuestionFragment : Fragment(), QuestionContract.View {
         categoryImage.setImageDrawable(ContextCompat.getDrawable(context!!, categoryType.imageResource))
     }
 
+    override fun getViewContext(): Context {
+        return context!!
+    }
+
     override fun showErrorMessage() {
         callback.onFinishLoading()
         Toast.makeText(context, R.string.load_error_message, Toast.LENGTH_LONG).show()
+    }
+
+    override fun showNoNetworkMessage() {
+        callback.onFinishLoading()
+        Toast.makeText(context, R.string.no_network_error_message, Toast.LENGTH_LONG).show()
     }
 
     override fun onStartLoading() {

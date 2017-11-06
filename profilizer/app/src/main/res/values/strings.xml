@@ -6,6 +6,7 @@
     <string name="empty_tests_message">There are no tests started yet, lets create one!!</string>
     <string name="title_activity_float">FloatActivity</string>
     <string name="load_error_message">An unexpected error happened. Try again later.</string>
+    <string name="no_network_error_message">Problem with network connection.</string>
     <string name="btn_close_test">Close test button</string>
     <string name="start_test_message">Ready to start? Lets start discovering who you are first</string>
     <string name="name_hint">Name</string>

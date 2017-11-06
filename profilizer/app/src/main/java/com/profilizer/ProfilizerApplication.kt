@@ -1,22 +1,28 @@
 package com.profilizer
 
 import android.app.Application
-import com.profilizer.common.component.ApplicationComponent
-import com.profilizer.common.component.DaggerApplicationComponent
-import com.profilizer.common.module.AppModule
-import com.profilizer.common.module.NetworkModule
+import android.content.Context
+import android.support.annotation.VisibleForTesting
+import com.profilizer.common.di.component.ApplicationComponent
 
 class ProfilizerApplication : Application() {
 
     companion object {
         lateinit var applicationComponent : ApplicationComponent
+
+        fun get(context: Context): ProfilizerApplication {
+            return context.applicationContext as ProfilizerApplication
+        }
     }
 
     override fun onCreate() {
         super.onCreate()
-        applicationComponent = DaggerApplicationComponent.builder()
-                .appModule(AppModule(this))
-                .networkModule(NetworkModule())
-                .build()
+        applicationComponent = ApplicationComponent.init(this)
+    }
+
+    @VisibleForTesting
+    fun setComponent(component: ApplicationComponent) {
+        applicationComponent = component
+        component.inject(this)
     }
 }

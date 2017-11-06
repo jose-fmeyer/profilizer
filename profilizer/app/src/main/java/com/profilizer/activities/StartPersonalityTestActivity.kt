@@ -228,10 +228,18 @@ class StartPersonalityTestActivity : AppCompatActivity(), StartPersonalityTestTe
         return true
     }
 
+    override fun getViewContext(): Context {
+        return this
+    }
+
     override fun showErrorMessage() {
         progressLoading.hide()
         Snackbar.make(testContainer, R.string.load_error_message, Snackbar.LENGTH_LONG).show()
+    }
 
+    override fun showNoNetworkMessage() {
+        progressLoading.hide()
+        Snackbar.make(testContainer, R.string.no_network_error_message, Snackbar.LENGTH_LONG).show()
     }
 
     override fun startLoading() {

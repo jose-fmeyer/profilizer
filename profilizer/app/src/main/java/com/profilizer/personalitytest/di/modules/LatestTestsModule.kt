@@ -7,10 +7,10 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-open class LatestTestsModule(var view: LatestTestsContract.View?) {
+open class LatestTestsModule(var view: LatestTestsContract.View) {
 
     @Provides
-    fun provideLatestTestsView() = view!!
+    fun provideLatestTestsView() = view
 
     @Provides
     open fun provideLatestTestsPresenter(service: PersonalityTestService,

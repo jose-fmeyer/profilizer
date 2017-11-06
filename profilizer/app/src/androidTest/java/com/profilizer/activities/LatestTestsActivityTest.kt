@@ -1,4 +1,4 @@
-package com.profilizer.util.activities
+package com.profilizer.activities
 
 import android.content.Intent
 import android.support.test.espresso.Espresso
@@ -9,7 +9,6 @@ import android.support.test.espresso.matcher.ViewMatchers
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import com.profilizer.R
-import com.profilizer.activities.LatestTestsActivity
 import com.profilizer.personalitytest.adapter.LatestTestsDelegateAdapter.LatestTestsViewHolder
 import org.junit.Before
 import org.junit.Rule

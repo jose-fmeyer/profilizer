@@ -1,4 +1,4 @@
-package com.profilizer.presenter.util
+package com.profilizer.common.util
 
 import com.profilizer.common.CategoryType
 import com.profilizer.personalitytest.model.*

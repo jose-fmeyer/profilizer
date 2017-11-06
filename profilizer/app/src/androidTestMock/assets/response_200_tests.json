@@ -1,0 +1,22 @@
+[
+  {
+    "id": "59fc5cb6857aba0001a18cc3",
+    "owner": "User 1",
+    "numberOfQuestions": 0,
+    "percentageCompletion": 4,
+    "creationDate": 1509711030722,
+    "answersId": [
+      "59fc5cb6857aba0001a18cc4"
+    ]
+  },
+  {
+    "id": "59fc5cb6857aba0001a18cc5",
+    "owner": "User 1",
+    "numberOfQuestions": 0,
+    "percentageCompletion": 4,
+    "creationDate": 1509711030906,
+    "answersId": [
+      "59fc5cb6857aba0001a18cc6"
+    ]
+  }
+]

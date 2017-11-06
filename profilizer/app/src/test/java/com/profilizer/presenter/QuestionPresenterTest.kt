@@ -8,7 +8,7 @@ import com.profilizer.personalitytest.contracts.QuestionContract
 import com.profilizer.personalitytest.model.Answer
 import com.profilizer.personalitytest.presenter.QuestionPresenterImpl
 import com.profilizer.personalitytest.services.AnswerService
-import com.profilizer.presenter.util.TestUtils
+import com.profilizer.common.util.TestUtils
 import io.reactivex.Observable
 import org.junit.After
 import org.junit.Before

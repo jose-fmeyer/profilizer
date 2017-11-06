@@ -1,4 +1,4 @@
-package com.profilizer.common.module
+package com.profilizer.common.di.module
 
 import com.profilizer.BuildConfig.BASE_END_POINT
 import com.profilizer.common.api.ApiAuthenticationInterceptor

@@ -2,6 +2,7 @@ package com.profilizer.personalitytest.presenter
 
 import android.util.Log
 import com.profilizer.common.ValidationException
+import com.profilizer.common.util.NetworkUtil
 import com.profilizer.personalitytest.contracts.StartTestContract
 import com.profilizer.personalitytest.model.PersonalityTest
 import com.profilizer.personalitytest.services.PersonalityTestService
@@ -29,6 +30,10 @@ class StartTestPresenterImpl @Inject constructor(private val startTestView: Star
     override fun createPersonalityTest(userName: String) {
         try {
             startTestView.validateFields()
+            if (NetworkUtil.isNotConnected(startTestView.getViewContext())) {
+                startTestView.showNoNetworkMessage()
+                return
+            }
             startTestView.startCreating()
             val personalityTest = PersonalityTest(userName)
             disposable.add(

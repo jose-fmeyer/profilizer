@@ -1,6 +1,7 @@
 package com.profilizer.personalitytest.presenter
 
 import android.util.Log
+import com.profilizer.common.util.NetworkUtil
 import com.profilizer.personalitytest.contracts.ListCompletedTestsContract
 import com.profilizer.personalitytest.services.AnswerService
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -26,6 +27,10 @@ class ListCompletedTestsPresenterImpl @Inject constructor(private val completedT
     }
 
     override fun loadCompletedTestData(personalityTestId: String) {
+        if (NetworkUtil.isNotConnected(completedTestView.getViewContext())) {
+            completedTestView.showNoNetworkMessage()
+            return
+        }
         completedTestView.onStartLoading()
         disposable.add(
                 answerService.loadCompletedTestAnswers(personalityTestId)

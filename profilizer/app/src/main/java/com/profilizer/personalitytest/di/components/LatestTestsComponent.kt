@@ -1,8 +1,8 @@
 package com.profilizer.personalitytest.di.components
 
 import com.profilizer.activities.LatestTestsActivity
-import com.profilizer.common.component.ActivityScope
-import com.profilizer.common.component.ApplicationComponent
+import com.profilizer.common.di.component.ActivityScope
+import com.profilizer.common.di.component.ApplicationComponent
 import com.profilizer.personalitytest.di.modules.LatestTestsModule
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
 import dagger.Component

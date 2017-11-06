@@ -124,6 +124,10 @@ class ListCompletedTestsActivity : AppCompatActivity(), ListCompletedTestsContra
         answersList.adapter = adapter
     }
 
+    override fun getViewContext(): Context {
+        return this
+    }
+
     override fun showCompletedTestData(answers: List<Answer>) {
         progressBar.hide()
         adapter.clearAndAddAnswers(answers)
@@ -136,6 +140,11 @@ class ListCompletedTestsActivity : AppCompatActivity(), ListCompletedTestsContra
 
     override fun onStartLoading() {
         progressBar.visible()
+    }
+
+    override fun showNoNetworkMessage() {
+        progressBar.hide()
+        Snackbar.make(answersList, R.string.no_network_error_message, Snackbar.LENGTH_LONG).show()
     }
 
     private fun initSearchAnswers() {

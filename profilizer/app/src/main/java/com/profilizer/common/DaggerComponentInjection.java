@@ -2,7 +2,7 @@
 //
 //import android.app.Application;
 //
-//import com.profilizer.common.module.NetworkModule;
+//import com.profilizer.common.di.module.NetworkModule;
 //import com.profilizer.personalitytest.di.components.LatestTestsComponent;
 //import com.profilizer.personalitytest.di.components.ListCompletedTestComponent;
 //import com.profilizer.personalitytest.di.components.PersonalityTestComponent;

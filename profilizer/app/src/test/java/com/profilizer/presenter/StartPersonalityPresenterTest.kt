@@ -7,7 +7,7 @@ import com.profilizer.personalitytest.contracts.StartPersonalityTestTestContract
 import com.profilizer.personalitytest.model.PersonalityTestQuestions
 import com.profilizer.personalitytest.presenter.StartPersonalityTestPresenterImpl
 import com.profilizer.personalitytest.services.PersonalityTestService
-import com.profilizer.presenter.util.TestUtils
+import com.profilizer.common.util.TestUtils
 import io.reactivex.Observable
 import org.junit.After
 import org.junit.Before
