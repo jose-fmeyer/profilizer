@@ -3,7 +3,7 @@ package com.profilizer.activities
 import android.content.Intent
 import android.support.test.InstrumentationRegistry
 import android.support.test.espresso.Espresso.onView
-import android.support.test.espresso.assertion.ViewAssertions.*
+import android.support.test.espresso.assertion.ViewAssertions.matches
 import android.support.test.espresso.matcher.ViewMatchers.*
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
@@ -14,6 +14,8 @@ import com.profilizer.common.util.IOUtil
 import com.profilizer.common.util.RecyclerViewAssertions.hasItemsCount
 import com.profilizer.di.MockComponentRule
 import okhttp3.mockwebserver.MockResponse
+import org.hamcrest.Matchers.allOf
+import org.hamcrest.Matchers.not
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.RuleChain
@@ -21,8 +23,6 @@ import org.junit.rules.TestRule
 import org.junit.runner.RunWith
 import java.io.IOException
 import java.net.HttpURLConnection
-import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
-import org.hamcrest.Matchers.*
 
 
 @RunWith(AndroidJUnit4::class)

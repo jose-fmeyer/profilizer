@@ -32,7 +32,8 @@
             android:layout_gravity="center_vertical"
             android:progressDrawable="@drawable/ic_test_progress_bar"
             android:layout_marginStart="@dimen/content_margin"
-            android:visibility="gone"/>
+            android:visibility="gone"
+            tools:visibility="visible"/>
     </LinearLayout>
 
     <FrameLayout

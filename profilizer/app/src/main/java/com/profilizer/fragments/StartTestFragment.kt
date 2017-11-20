@@ -12,7 +12,6 @@ import com.profilizer.ProfilizerApplication
 import com.profilizer.R
 import com.profilizer.common.ValidationException
 import com.profilizer.personalitytest.contracts.StartTestContract
-import com.profilizer.personalitytest.di.components.DaggerStartTestComponent
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
 import com.profilizer.personalitytest.di.modules.StartTestModule
 import com.profilizer.personalitytest.model.PersonalityTest
@@ -54,11 +53,8 @@ class StartTestFragment : Fragment(), StartTestContract.View {
     }
 
     private fun setUpInjection() {
-        DaggerStartTestComponent.builder()
-                .applicationComponent(ProfilizerApplication.applicationComponent)
-                .personalityTestModule(PersonalityTestModule())
-                .startTestModule(StartTestModule(this))
-                .build()
+        ProfilizerApplication.applicationComponent
+                .provideStartTestComponent(StartTestModule(this), PersonalityTestModule())
                 .inject(this)
     }
 

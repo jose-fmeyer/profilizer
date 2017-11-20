@@ -12,9 +12,9 @@ object IOUtil {
     @Throws(IOException::class)
     private fun readStream(`is`: InputStream): String {
         val reader = BufferedReader(InputStreamReader(`is`))
-        reader.use { reader ->
+        reader.use {
             val sb = StringBuilder()
-            reader.forEachLine { line ->
+            it.forEachLine { line ->
                 sb.append(line).append("\n")
             }
             return sb.toString()
@@ -25,8 +25,8 @@ object IOUtil {
     fun readAsset(context: Context, filePath: String): String {
         val stream = context.resources.assets.open(filePath)
 
-        stream.use { stream ->
-            return readStream(stream)
+        stream.use {
+            return readStream(it)
         }
     }
 }// no-instance

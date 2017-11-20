@@ -1,20 +1,17 @@
 package com.profilizer.common.di.module
 
 import android.support.annotation.NonNull
-import com.profilizer.BuildConfig.QA_BASE_END_POINT
 import com.profilizer.common.api.ApiAuthenticationInterceptor
 import com.profilizer.common.api.DateJsonAdpater
 import com.squareup.moshi.Moshi
 import dagger.Module
-
-import javax.inject.Singleton
-
 import dagger.Provides
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.*
+import javax.inject.Singleton
 
 @Module
 class MockNetworkModule(@NonNull private val endpoint: String) {

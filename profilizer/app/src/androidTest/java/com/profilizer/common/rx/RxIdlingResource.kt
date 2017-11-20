@@ -1,7 +1,7 @@
 package com.profilizer.common.rx
 
-import android.support.test.espresso.IdlingResource.ResourceCallback
 import android.support.test.espresso.IdlingResource
+import android.support.test.espresso.IdlingResource.ResourceCallback
 import java.util.concurrent.locks.ReentrantLock
 import java.util.function.Function
 

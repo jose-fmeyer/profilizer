@@ -17,7 +17,6 @@ import com.profilizer.common.QuestionTypeOption
 import com.profilizer.common.ViewType
 import com.profilizer.personalitytest.adapter.QuestionsAnswerOptionsAdapter
 import com.profilizer.personalitytest.contracts.QuestionContract
-import com.profilizer.personalitytest.di.components.DaggerQuestionComponent
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
 import com.profilizer.personalitytest.di.modules.QuestionModule
 import com.profilizer.personalitytest.model.Answer
@@ -98,11 +97,8 @@ class QuestionFragment : Fragment(), QuestionContract.View {
     }
 
     private fun setUpInjection() {
-        DaggerQuestionComponent.builder()
-                .applicationComponent(ProfilizerApplication.applicationComponent)
-                .personalityTestModule(PersonalityTestModule())
-                .questionModule(QuestionModule(this))
-                .build()
+        ProfilizerApplication.applicationComponent
+                .provideQuestionComponent(QuestionModule(this), PersonalityTestModule())
                 .inject(this)
     }
 

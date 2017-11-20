@@ -50,7 +50,7 @@ class QuestionSingleChoiceDelegateAdapter(private var questionSingleChoiceViewTy
             radioQuestion.id = position
             radioQuestion.buttonTintList = ContextCompat.getColorStateList(context, R.color.single_choice_state)
             questionsRadioGroup.addView(radioQuestion)
-            questionsRadioGroup.setOnCheckedChangeListener { radioGroup, i ->
+            questionsRadioGroup.setOnCheckedChangeListener { radioGroup, _ ->
                 lastCheckedRadioGroup?.apply {
                     if (checkedRadioButtonId != radioGroup.checkedRadioButtonId
                             && checkedRadioButtonId != RadioGroup.NO_ID) {

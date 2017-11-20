@@ -1,17 +1,12 @@
 package com.profilizer.di
 
 import android.content.Context
-
 import com.profilizer.ProfilizerApplication
-import com.profilizer.common.di.component.ApplicationComponent
-
+import okhttp3.mockwebserver.MockWebServer
 import org.junit.rules.TestRule
 import org.junit.runner.Description
 import org.junit.runners.model.Statement
-
 import java.io.IOException
-
-import okhttp3.mockwebserver.MockWebServer
 
 class MockComponentRule(private val context: Context) : TestRule {
 

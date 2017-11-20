@@ -1,7 +1,7 @@
 package com.profilizer.common.util
 
-import android.support.v7.widget.RecyclerView
 import android.support.test.espresso.ViewAssertion
+import android.support.v7.widget.RecyclerView
 import org.junit.Assert.assertEquals
 
 

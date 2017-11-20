@@ -1,7 +1,6 @@
 package com.profilizer.personalitytest.presenter
 
 import android.util.Log
-import com.profilizer.common.ValidationException
 import com.profilizer.common.util.NetworkUtil
 import com.profilizer.personalitytest.contracts.StartTestContract
 import com.profilizer.personalitytest.model.PersonalityTest
@@ -28,28 +27,24 @@ class StartTestPresenterImpl @Inject constructor(private val startTestView: Star
     }
 
     override fun createPersonalityTest(userName: String) {
-        try {
-            startTestView.validateFields()
-            if (NetworkUtil.isNotConnected(startTestView.getViewContext())) {
-                startTestView.showNoNetworkMessage()
-                return
-            }
-            startTestView.startCreating()
-            val personalityTest = PersonalityTest(userName)
-            disposable.add(
-                    testService.createTest(personalityTest)
-                        .observeOn(AndroidSchedulers.mainThread())
-                        .subscribeOn(Schedulers.io())
-                        .subscribe({ data ->
-                            startTestView.onCreateFinish(data)
-                        }, {
-                            Log.e(tag, "Error on create test", it)
-                            startTestView.showErrorMessage()
-                        }))
+        startTestView.validateFields()
+        if (NetworkUtil.isNotConnected(startTestView.getViewContext())) {
+            startTestView.showNoNetworkMessage()
+            return
         }
-        catch (error: ValidationException) {
-            Log.e(tag, error.message)
-        }
+        startTestView.startCreating()
+        val personalityTest = PersonalityTest(userName)
+        disposable.add(
+                testService.createTest(personalityTest)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribeOn(Schedulers.io())
+                    .subscribe({ data ->
+                        startTestView.onCreateFinish(data)
+                    }, {
+                        Log.e(tag, "Error on create test", it)
+                        startTestView.showErrorMessage()
+                    }))
+
     }
 
     override fun loadTestQuestions() {

@@ -8,15 +8,13 @@ import dagger.Provides
 import retrofit2.Retrofit
 
 @Module
-class PersonalityTestModule {
+open class PersonalityTestModule {
 
     @Provides
-    fun providesPersonalityTestService(retrofit : Retrofit) : PersonalityTestService {
-        return retrofit.create(PersonalityTestService::class.java)
-    }
+    fun providesPersonalityTestService(retrofit : Retrofit) : PersonalityTestService =
+            retrofit.create(PersonalityTestService::class.java)
 
     @Provides
-    fun providesAnswerService(retrofit: Retrofit): AnswerService {
-        return retrofit.create(AnswerService::class.java)
-    }
+    fun providesAnswerService(retrofit: Retrofit): AnswerService =
+            retrofit.create(AnswerService::class.java)
 }

@@ -5,15 +5,16 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import android.widget.ProgressBar
 import com.profilizer.ProfilizerApplication
 import com.profilizer.R
 import com.profilizer.common.hide
+import com.profilizer.common.isHidden
 import com.profilizer.common.visible
 import com.profilizer.fragments.FinishTestFragment
 import com.profilizer.fragments.QuestionFragment
 import com.profilizer.fragments.StartTestFragment
 import com.profilizer.personalitytest.contracts.StartPersonalityTestTestContract
-import com.profilizer.personalitytest.di.components.DaggerStartPersonalityTestComponent
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
 import com.profilizer.personalitytest.di.modules.StartPersonalityTestModule
 import com.profilizer.personalitytest.model.Answer
@@ -94,11 +95,9 @@ class StartPersonalityTestActivity : AppCompatActivity(), StartPersonalityTestTe
     }
 
     private fun setUpInjection() {
-        DaggerStartPersonalityTestComponent.builder()
-                .applicationComponent(ProfilizerApplication.applicationComponent)
-                .personalityTestModule(PersonalityTestModule())
-                .startPersonalityTestModule(StartPersonalityTestModule(this))
-                .build()
+        ProfilizerApplication.applicationComponent
+                .provideStartPersonalityTestComponent(StartPersonalityTestModule(this),
+                        PersonalityTestModule())
                 .inject(this)
     }
 
@@ -136,7 +135,6 @@ class StartPersonalityTestActivity : AppCompatActivity(), StartPersonalityTestTe
     }
 
     private fun startTest() {
-        progressBarQuiz.visible()
         if(isStartedTest()) {
             presenter.loadTestQuestions()
             return
@@ -144,8 +142,15 @@ class StartPersonalityTestActivity : AppCompatActivity(), StartPersonalityTestTe
         if (testQuiz.isEmpty()) {
             loadStartFragment()
         } else {
+            checkProgressVisibility(progressBarQuiz)
             progressBarQuiz.max = testQuiz.size
             openNextQuestion()
+        }
+    }
+
+    private fun checkProgressVisibility(progressBar: ProgressBar) {
+        if (progressBar.isHidden()) {
+            progressBar.visible()
         }
     }
 
@@ -182,8 +187,8 @@ class StartPersonalityTestActivity : AppCompatActivity(), StartPersonalityTestTe
 
     override fun onStartFinish(personalityTestId : String) {
         this.personalityTestId = personalityTestId
-        progressBarQuiz.visible()
         presenter.loadTestQuestions()
+        progressBarQuiz.visible()
     }
 
     private fun getNextQuestion() : Question? {
@@ -205,6 +210,7 @@ class StartPersonalityTestActivity : AppCompatActivity(), StartPersonalityTestTe
 
     override fun onFinishLoadingTestQuestions(personalityTestQuestions: PersonalityTestQuestions) {
         progressLoading.hide()
+        progressBarQuiz.visible()
         progressBarQuiz.max = personalityTestQuestions.questions.size
         testQuestions = if (isStartedTest()) {
             filterUnansweredQuestions(personalityTestQuestions)

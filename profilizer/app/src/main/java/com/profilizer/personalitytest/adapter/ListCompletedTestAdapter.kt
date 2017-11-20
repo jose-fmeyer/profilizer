@@ -25,7 +25,7 @@ class ListCompletedTestAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
         delegateAdapters.append(ViewTypeDelegateAdapter.HEADER_TYPE, HeaderCategoryDelegateAdapter())
 
         items = LinkedList()
-        itemsSearchingData = mutableListOf<ViewType>()
+        itemsSearchingData = mutableListOf()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder =
@@ -53,7 +53,7 @@ class ListCompletedTestAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
 
     private fun groupAnswersByCategory(answers : List<Answer>) : LinkedList<ViewType> {
         val groupedList = LinkedList<ViewType>()
-        val answersByCategory = HashMap<String, MutableList<Answer>>();
+        val answersByCategory = HashMap<String, MutableList<Answer>>()
         answers.forEach { answer ->
             if (answersByCategory.containsKey(answer.category)) {
                 answersByCategory[answer.category]?.add(answer)
@@ -85,9 +85,7 @@ class ListCompletedTestAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
                 .map { it as Answer }
     }
 
-    override fun getFilter(): Filter {
-        return queryFilter
-    }
+    override fun getFilter(): Filter = queryFilter
 
     private inner class ItemFilter : Filter() {
         override fun performFiltering(query: CharSequence): Filter.FilterResults {
@@ -101,9 +99,6 @@ class ListCompletedTestAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
 
             val filterString = query.toString().toLowerCase()
 
-            val list = items
-
-            val count = list.size
             val filterList = getAnswerItems().filter { answer ->
                 answer.question.contains(filterString, true)
                         || answer.answer.contains(filterString, true)}
@@ -114,10 +109,10 @@ class ListCompletedTestAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>()
             return results
         }
 
+        @Suppress("UNCHECKED_CAST")
         override fun publishResults(constraint: CharSequence, results: Filter.FilterResults) {
             itemsSearchingData = results.values as MutableList<ViewType>
             notifyDataSetChanged()
         }
-
     }
 }

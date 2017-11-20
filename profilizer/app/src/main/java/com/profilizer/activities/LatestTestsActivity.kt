@@ -11,7 +11,6 @@ import com.profilizer.R
 import com.profilizer.common.*
 import com.profilizer.personalitytest.adapter.LatestTestsAdapter
 import com.profilizer.personalitytest.contracts.LatestTestsContract
-import com.profilizer.personalitytest.di.components.DaggerLatestTestsComponent
 import com.profilizer.personalitytest.di.modules.LatestTestsModule
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
 import com.profilizer.personalitytest.model.PersonalityTest
@@ -51,11 +50,8 @@ class LatestTestsActivity : AppCompatActivity(), LatestTestsContract.View {
     }
 
     private fun setUpInjection() {
-        DaggerLatestTestsComponent.builder()
-                .applicationComponent(ProfilizerApplication.applicationComponent)
-                .personalityTestModule(PersonalityTestModule())
-                .latestTestsModule(LatestTestsModule(this))
-                .build()
+        ProfilizerApplication.applicationComponent
+                .provideLatestTestsComponent(LatestTestsModule(this), PersonalityTestModule())
                 .inject(this)
     }
 
@@ -68,9 +64,7 @@ class LatestTestsActivity : AppCompatActivity(), LatestTestsContract.View {
         }
     }
 
-    override fun getViewContext(): Context {
-        return this
-    }
+    override fun getViewContext(): Context = this
 
     override fun showPersonalityTestData(tests: List<PersonalityTest>) {
         progressBar.hide()

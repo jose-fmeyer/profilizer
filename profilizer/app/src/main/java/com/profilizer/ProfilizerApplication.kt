@@ -10,14 +10,13 @@ class ProfilizerApplication : Application() {
     companion object {
         lateinit var applicationComponent : ApplicationComponent
 
-        fun get(context: Context): ProfilizerApplication {
-            return context.applicationContext as ProfilizerApplication
-        }
+        fun get(context: Context?): ProfilizerApplication =
+                context?.applicationContext as ProfilizerApplication
     }
 
     override fun onCreate() {
         super.onCreate()
-        applicationComponent = ApplicationComponent.init(this)
+        applicationComponent = ApplicationComponent.init()
     }
 
     @VisibleForTesting

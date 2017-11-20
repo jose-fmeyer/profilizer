@@ -20,14 +20,12 @@ import com.profilizer.common.tintDrawable
 import com.profilizer.common.visible
 import com.profilizer.personalitytest.adapter.ListCompletedTestAdapter
 import com.profilizer.personalitytest.contracts.ListCompletedTestsContract
-import com.profilizer.personalitytest.di.components.DaggerListCompletedTestComponent
 import com.profilizer.personalitytest.di.modules.ListCompletedTestModule
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
 import com.profilizer.personalitytest.model.Answer
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.layout_app_bar.*
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
@@ -102,8 +100,6 @@ class ListCompletedTestsActivity : AppCompatActivity(), ListCompletedTestsContra
         createTextChangeObservable()
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnNext { onStartLoading() }
-                .observeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe {
                     progressBar.hide()
                     adapter.filter.filter(it)
@@ -111,11 +107,8 @@ class ListCompletedTestsActivity : AppCompatActivity(), ListCompletedTestsContra
     }
 
     private fun setUpInjection() {
-        DaggerListCompletedTestComponent.builder()
-                .applicationComponent(ProfilizerApplication.applicationComponent)
-                .personalityTestModule(PersonalityTestModule())
-                .listCompletedTestModule(ListCompletedTestModule(this))
-                .build()
+        ProfilizerApplication.applicationComponent
+                .provideListCompletedTestComponent(ListCompletedTestModule(this), PersonalityTestModule())
                 .inject(this)
     }
 
@@ -163,7 +156,6 @@ class ListCompletedTestsActivity : AppCompatActivity(), ListCompletedTestsContra
     }
 
     private fun createTextChangeObservable(): Observable<String> {
-
         val textChangeObservable = Observable.create<String> { emitter ->
 
             val queryListener = object : SearchView.OnQueryTextListener {

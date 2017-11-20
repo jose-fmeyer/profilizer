@@ -39,15 +39,17 @@ fun View.hide() {
     this.visibility = View.GONE
 }
 
+fun View.isHidden() : Boolean = this.visibility == View.GONE || this.visibility == View.INVISIBLE
+
 inline fun <reified T : Activity> Activity.startActivity() {
     startActivity(Intent(this, T::class.java))
 }
 
-inline fun <reified T : Parcelable> createParcel(createFromParcel : (Parcel) -> T) : Parcelable.Creator<T> =
+inline fun <reified T : Parcelable> createParcel(crossinline parcel : (Parcel) -> T) =
         object : Parcelable.Creator<T> {
             override fun newArray(size: Int): Array<out T?> = arrayOfNulls(size)
 
-            override fun createFromParcel(source: Parcel?): T = createFromParcel(source)
+            override fun createFromParcel(source: Parcel): T = parcel(source)
         }
 
 fun RecyclerView.addOnItemClickListener(itemClickListener: OnItemClickListener) {

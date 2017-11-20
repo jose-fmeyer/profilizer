@@ -1,15 +1,13 @@
 package com.profilizer.personalitytest.di.components
 
 import com.profilizer.common.di.component.ActivityScope
-import com.profilizer.common.di.component.ApplicationComponent
 import com.profilizer.fragments.QuestionFragment
 import com.profilizer.personalitytest.di.modules.PersonalityTestModule
 import com.profilizer.personalitytest.di.modules.QuestionModule
-import dagger.Component
+import dagger.Subcomponent
 
 @ActivityScope
-@Component(dependencies = arrayOf(ApplicationComponent::class),
-        modules = arrayOf(QuestionModule::class, PersonalityTestModule::class))
+@Subcomponent(modules = arrayOf(QuestionModule::class, PersonalityTestModule::class))
 interface QuestionComponent {
     fun inject(questionFragment: QuestionFragment)
 }
